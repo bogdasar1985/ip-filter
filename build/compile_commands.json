@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/bogdasar/Documents/C++_Programming/ip_filter/build",
+  "command": "/usr/bin/g++-7   -I/home/bogdasar/.conan/data/range-v3/0.9.1/ericniebler/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include     -g    -o CMakeFiles/ip_filter.dir/ip_filter.cpp.o -c /home/bogdasar/Documents/C++_Programming/ip_filter/ip_filter.cpp",
+  "file": "/home/bogdasar/Documents/C++_Programming/ip_filter/ip_filter.cpp"
+}
+]
