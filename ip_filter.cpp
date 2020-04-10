@@ -22,26 +22,27 @@
 // ("11.", '.') -> ["11", ""]
 // (".11", '.') -> ["", "11"]
 // ("11.22", '.') -> ["11", "22"]
-std::vector<std::string> split(const std::string &str, char d)
+std::array<std::string, 4> split(const std::string &str, char d)
 {
-    std::vector<std::string> r;
+    std::array<std::string, 4> r;
 
     std::string::size_type start = 0;
     std::string::size_type stop = str.find_first_of(d);
+    int i= 0;
     while(stop != std::string::npos)
     {
-        r.push_back(str.substr(start, stop - start));
-
+        r[i] = (str.substr(start, stop - start));
+        i++;
         start = stop + 1;
         stop = str.find_first_of(d, start);
     }
 
-    r.push_back(str.substr(start));
+    r[r.size() - 1] = (str.substr(start));
 
     return r;
 }
 
-void PrintIp_Pool(const std::vector<std::vector<std::string>>& ip_pool)
+void PrintIp_Pool(const std::vector<std::array<std::string, 4>>& ip_pool)
 {
     for(auto ip = ip_pool.cbegin(); ip != ip_pool.cend(); ++ip) //Вывод ip_pool
     {
@@ -59,7 +60,7 @@ void PrintIp_Pool(const std::vector<std::vector<std::string>>& ip_pool)
     }
 }
 
-bool less_lexicographic_compare(const std::vector<std::string>& first, const std::vector<std::string>& second)
+bool less_lexicographic_compare(const std::array<std::string, 4>& first, const std::array<std::string, 4>& second)
 {
     for(int i = 0; i < first.size(); i++)
     {
@@ -79,11 +80,11 @@ int main(int argc, char const *argv[])
 {
     try
     {
-        std::vector<std::vector<std::string>> ip_pool;
+        std::vector<std::array<std::string, 4>> ip_pool;
 
         for(std::string line; std::getline(std::cin, line);)    //Ввод в ip_pool
         {
-            std::vector<std::string> v = split(line, '\t');
+            std::array<std::string, 4> v = split(line, '\t');
             ip_pool.push_back(split(v.at(0), '.'));
         }
 
